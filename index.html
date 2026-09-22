@@ -1,0 +1,1137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Celestine &amp; Mae — Premium Women's Fashion</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1b1815;
+    --ink-soft:#3a352f;
+    --cream:#f6f2ea;
+    --ivory:#fbf9f5;
+    --beige:#e9decd;
+    --sand:#cdbba0;
+    --line:#ddd0ba;
+    --line-soft:#e6dccb;
+    --brass:#a6844f;
+    --white:#ffffff;
+    --success:#5c6e52;
+    --shadow: 0 18px 40px rgba(27,24,21,0.14);
+    --radius-s: 2px;
+    --serif: 'Cormorant Garamond', 'Times New Roman', serif;
+    --sans: 'Jost', 'Helvetica Neue', Arial, sans-serif;
+  }
+
+  *,*::before,*::after{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    margin:0;
+    font-family:var(--sans);
+    color:var(--ink);
+    background:var(--ivory);
+    -webkit-font-smoothing:antialiased;
+    font-weight:300;
+  }
+  img{ max-width:100%; display:block; }
+  a{ color:inherit; text-decoration:none; }
+  button{ font-family:inherit; cursor:pointer; }
+  ::selection{ background:var(--ink); color:var(--ivory); }
+
+  h1,h2,h3,h4{
+    font-family:var(--serif);
+    font-weight:500;
+    margin:0;
+    letter-spacing:0.01em;
+    color:var(--ink);
+  }
+
+  .container{ max-width:1280px; margin:0 auto; padding:0 40px; }
+  @media (max-width:768px){ .container{ padding:0 20px; } }
+
+  button:focus-visible, a:focus-visible, input:focus-visible{
+    outline:2px solid var(--brass);
+    outline-offset:2px;
+  }
+
+  /* ================= HEADER ================= */
+  header.site-header{
+    position:sticky; top:0; z-index:200;
+    background:var(--ivory);
+    border-bottom:1px solid var(--line);
+  }
+  .header-row{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 40px;
+  }
+  @media (max-width:768px){ .header-row{ padding:14px 20px; } }
+
+  .logo-mark{ display:flex; flex-direction:column; align-items:flex-start; line-height:1; }
+  .logo-dots{ display:flex; align-items:center; gap:5px; margin-bottom:6px; }
+  .logo-dots span{ width:6px; height:6px; border-radius:50%; background:var(--ink); display:inline-block; }
+  .logo-dots span:last-child{ width:3px; height:3px; opacity:0.7; }
+  .logo-mark .logo-text{
+    font-family:var(--serif);
+    font-size:26px;
+    letter-spacing:0.03em;
+    color:var(--ink);
+  }
+  .logo-mark .logo-sub{
+    font-family:var(--sans);
+    font-size:9px;
+    letter-spacing:0.32em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin-top:4px;
+  }
+
+  nav.main-nav{ display:flex; gap:34px; }
+  nav.main-nav a{
+    font-size:13px; letter-spacing:0.05em; color:var(--ink-soft);
+    position:relative; padding-bottom:3px;
+    transition:color .25s ease;
+  }
+  nav.main-nav a::after{
+    content:''; position:absolute; left:0; right:100%; bottom:0; height:1px; background:var(--ink);
+    transition:right .28s ease;
+  }
+  nav.main-nav a:hover{ color:var(--ink); }
+  nav.main-nav a:hover::after{ right:0; }
+  @media (max-width:1024px){ nav.main-nav{ display:none; } }
+
+  .header-icons{ display:flex; align-items:center; gap:20px; }
+  .icon-btn{ background:none; border:none; padding:4px; color:var(--ink); position:relative; display:flex; }
+  .icon-btn svg{ width:19px; height:19px; }
+  .bag-count{
+    position:absolute; top:-6px; right:-7px; background:var(--ink); color:var(--ivory);
+    font-size:9px; width:15px; height:15px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center; font-family:var(--sans);
+  }
+  .hamburger{ display:none; background:none; border:none; }
+  .hamburger svg{ width:22px; height:22px; }
+  @media (max-width:1024px){ .hamburger{ display:flex; } }
+
+  .announce-bar{
+    background:var(--ink); color:var(--ivory);
+    text-align:center; font-size:12px; letter-spacing:0.05em;
+    padding:9px 16px;
+  }
+  .announce-bar button{
+    background:none; border:none; color:var(--ivory); text-decoration:underline;
+    font-size:12px; font-family:var(--sans); padding:0; margin-left:4px;
+  }
+
+  /* mobile nav drawer */
+  .mobile-nav{
+    position:fixed; inset:0 0 0 auto; width:min(320px,84vw); background:var(--ivory);
+    z-index:400; transform:translateX(100%); transition:transform .35s ease;
+    padding:26px 26px; border-left:1px solid var(--line); overflow-y:auto;
+  }
+  .mobile-nav.open{ transform:translateX(0); }
+  .mobile-nav-header{ display:flex; justify-content:space-between; align-items:center; margin-bottom:30px; }
+  .mobile-nav a{ display:block; padding:13px 0; border-bottom:1px solid var(--line-soft); font-size:15px; }
+  .scrim{
+    position:fixed; inset:0; background:rgba(27,24,21,0.4); z-index:300;
+    opacity:0; pointer-events:none; transition:opacity .3s ease;
+  }
+  .scrim.show{ opacity:1; pointer-events:auto; }
+
+  /* ================= HERO ================= */
+  .hero{
+    position:relative; min-height:86vh; display:flex; align-items:flex-end;
+    background:linear-gradient(180deg, rgba(27,24,21,0.05) 0%, rgba(27,24,21,0.68) 100%),
+      url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
+  }
+  .hero-inner{ padding:0 40px 72px; max-width:640px; }
+  @media (max-width:768px){ .hero-inner{ padding:0 20px 52px; } .hero{ min-height:78vh; } }
+  .hero-eyebrow{ color:var(--sand); font-size:12px; letter-spacing:0.1em; margin-bottom:18px; font-weight:400; }
+  .hero h1{
+    color:var(--ivory); font-size:clamp(38px,6vw,64px); line-height:1.06; margin-bottom:20px;
+  }
+  .hero p{ color:#efe8db; font-size:16px; line-height:1.6; max-width:460px; margin-bottom:32px; font-weight:300; }
+  .hero-ctas{ display:flex; gap:16px; flex-wrap:wrap; }
+
+  .btn{
+    display:inline-flex; align-items:center; gap:10px; padding:15px 30px;
+    font-size:13px; letter-spacing:0.06em; border:1px solid transparent;
+    transition:all .25s ease; white-space:nowrap;
+  }
+  .btn-primary{ background:var(--ivory); color:var(--ink); border-color:var(--ivory); }
+  .btn-primary:hover{ background:transparent; color:var(--ivory); border-color:var(--ivory); }
+  .btn-outline{ background:transparent; color:var(--ivory); border-color:rgba(251,249,245,0.55); }
+  .btn-outline:hover{ background:rgba(251,249,245,0.12); border-color:var(--ivory); }
+  .btn-dark{ background:var(--ink); color:var(--ivory); }
+  .btn-dark:hover{ background:var(--ink-soft); }
+  .btn-line{ background:transparent; color:var(--ink); border-color:var(--ink); }
+  .btn-line:hover{ background:var(--ink); color:var(--ivory); }
+  .btn-block{ width:100%; justify-content:center; }
+
+  /* ================= CATEGORY STRIP ================= */
+  .cat-strip{ padding:90px 0 20px; }
+  .section-head{ display:flex; align-items:baseline; justify-content:space-between; margin-bottom:38px; gap:20px; flex-wrap:wrap; }
+  .section-head h2{ font-size:32px; }
+  .section-head p{ color:var(--ink-soft); font-size:14px; max-width:360px; }
+
+  .cat-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:2px; background:var(--line); }
+  @media (max-width:900px){ .cat-grid{ grid-template-columns:repeat(2,1fr); } }
+  .cat-tile{
+    position:relative; aspect-ratio:3/4; overflow:hidden; background:var(--beige);
+  }
+  .cat-tile img{ width:100%; height:100%; object-fit:cover; transition:transform .7s ease; }
+  .cat-tile:hover img{ transform:scale(1.05); }
+  .cat-tile span{
+    position:absolute; left:18px; bottom:18px; color:var(--ivory);
+    font-family:var(--serif); font-size:20px; text-shadow:0 2px 14px rgba(0,0,0,0.35);
+  }
+  .cat-tile::after{
+    content:''; position:absolute; inset:0; background:linear-gradient(180deg, transparent 55%, rgba(27,24,21,0.55) 100%);
+  }
+
+  /* ================= PRODUCTS ================= */
+  .products-section{ padding:90px 0; }
+  .filter-row{ display:flex; gap:10px; flex-wrap:wrap; margin-bottom:44px; }
+  .filter-chip{
+    padding:9px 18px; border:1px solid var(--line); background:transparent; font-size:12px;
+    letter-spacing:0.03em; color:var(--ink-soft); transition:all .2s ease;
+  }
+  .filter-chip.active, .filter-chip:hover{ background:var(--ink); color:var(--ivory); border-color:var(--ink); }
+
+  .product-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:28px 24px; }
+  @media (max-width:1024px){ .product-grid{ grid-template-columns:repeat(3,1fr); } }
+  @media (max-width:768px){ .product-grid{ grid-template-columns:repeat(2,1fr); gap:20px 14px; } }
+  @media (max-width:480px){ .product-grid{ grid-template-columns:1fr; max-width:340px; margin:0 auto; } }
+
+  .product-card{ position:relative; }
+  .product-media{
+    position:relative; aspect-ratio:3/4; overflow:hidden; background:var(--beige); margin-bottom:14px;
+  }
+  .product-media img{ width:100%; height:100%; object-fit:cover; transition:transform .6s ease; cursor:pointer; }
+  .product-card:hover .product-media img{ transform:scale(1.045); }
+  .wishlist-btn{
+    position:absolute; top:12px; right:12px; background:rgba(251,249,245,0.9); border:none;
+    width:34px; height:34px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+  }
+  .wishlist-btn svg{ width:16px; height:16px; stroke:var(--ink); fill:none; transition:fill .2s ease; }
+  .wishlist-btn.saved svg{ fill:var(--ink); }
+  .quickview-btn{
+    position:absolute; left:0; right:0; bottom:0; background:rgba(27,24,21,0.88); color:var(--ivory);
+    border:none; padding:12px; font-size:11.5px; letter-spacing:0.06em; opacity:0; transition:opacity .25s ease;
+  }
+  .product-card:hover .quickview-btn{ opacity:1; }
+
+  .product-info .cat{ font-size:11px; letter-spacing:0.06em; color:var(--brass); margin-bottom:5px; }
+  .product-info .name{ font-family:var(--serif); font-size:19px; margin-bottom:5px; }
+  .product-info .price{ font-size:13.5px; color:var(--ink-soft); }
+
+  .view-more-wrap{ text-align:center; margin-top:52px; }
+
+  /* ================= AI STYLIST BANNER (mid-page) ================= */
+  .stylist-banner{
+    margin:0 0 90px; padding:76px 40px; background:var(--ink); color:var(--ivory);
+    display:flex; align-items:center; justify-content:space-between; gap:40px; flex-wrap:wrap;
+  }
+  .stylist-banner .txt h2{ color:var(--ivory); font-size:30px; margin-bottom:12px; }
+  .stylist-banner .txt p{ color:#cfc6b6; max-width:420px; font-size:14.5px; line-height:1.6; }
+  .stylist-banner .star{ color:var(--sand); font-size:13px; letter-spacing:0.08em; margin-bottom:16px; display:block; }
+
+  /* ================= FOOTER ================= */
+  footer{ background:var(--beige); padding:70px 0 30px; margin-top:40px; }
+  .footer-grid{ display:grid; grid-template-columns:1.6fr 1fr 1fr 1fr; gap:40px; padding-bottom:50px; border-bottom:1px solid var(--sand); }
+  @media (max-width:768px){ .footer-grid{ grid-template-columns:1fr 1fr; } }
+  .footer-grid h4{ font-size:13px; letter-spacing:0.06em; margin-bottom:16px; color:var(--ink-soft); font-family:var(--sans); font-weight:500; }
+  .footer-grid a{ display:block; font-size:13.5px; color:var(--ink-soft); margin-bottom:11px; }
+  .footer-brand p{ font-size:13.5px; color:var(--ink-soft); max-width:280px; line-height:1.6; margin-top:14px; }
+  .footer-bottom{ display:flex; justify-content:space-between; padding-top:24px; font-size:12px; color:var(--ink-soft); flex-wrap:wrap; gap:10px; }
+
+  /* ================= FLOATING STYLIST BUTTON ================= */
+  .fab-stylist{
+    position:fixed; right:26px; bottom:26px; z-index:500;
+    background:var(--ink); color:var(--ivory); border:none;
+    padding:16px 22px; display:flex; align-items:center; gap:10px;
+    font-size:13px; letter-spacing:0.04em; box-shadow:var(--shadow);
+    transition:transform .25s ease;
+  }
+  .fab-stylist:hover{ transform:translateY(-3px); }
+  .fab-stylist .dot-pulse{
+    width:7px; height:7px; border-radius:50%; background:var(--sand); animation:pulse 1.8s infinite;
+  }
+  @keyframes pulse{ 0%,100%{ opacity:1;} 50%{ opacity:.35;} }
+  @media (max-width:480px){ .fab-stylist span.fab-label{ display:none; } .fab-stylist{ padding:15px; border-radius:50%; } }
+
+  /* ================= STYLIST PANEL ================= */
+  .stylist-overlay{
+    position:fixed; inset:0; z-index:600; background:rgba(20,18,15,0.45);
+    opacity:0; pointer-events:none; transition:opacity .3s ease;
+  }
+  .stylist-overlay.open{ opacity:1; pointer-events:auto; }
+
+  .stylist-panel{
+    position:fixed; top:0; right:0; bottom:0; width:min(480px,100vw); background:var(--ivory);
+    z-index:610; display:flex; flex-direction:column; transform:translateX(100%);
+    transition:transform .38s cubic-bezier(.4,0,.2,1); box-shadow:-20px 0 50px rgba(0,0,0,0.2);
+  }
+  .stylist-panel.open{ transform:translateX(0); }
+  @media (max-width:640px){ .stylist-panel{ width:100vw; } }
+
+  .stylist-head{
+    padding:22px 24px; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; align-items:flex-start;
+    background:var(--ink); color:var(--ivory);
+  }
+  .stylist-head .titles h3{ color:var(--ivory); font-size:21px; line-height:1.2; }
+  .stylist-head .titles .live{ font-size:11px; color:var(--sand); letter-spacing:0.04em; margin-top:6px; }
+  .stylist-head .close-btn{ background:none; border:none; color:var(--ivory); }
+  .stylist-head .close-btn svg{ width:18px; height:18px; }
+
+  .stylist-sub{ padding:14px 24px; font-size:12.5px; color:var(--ink-soft); border-bottom:1px solid var(--line-soft); display:flex; justify-content:space-between; align-items:center; gap:10px; }
+  .stylist-sub button{ background:none; border:1px solid var(--line); padding:6px 12px; font-size:11px; color:var(--ink); white-space:nowrap; }
+  .stylist-sub button:hover{ background:var(--ink); color:var(--ivory); border-color:var(--ink); }
+
+  .chat-log{ flex:1; overflow-y:auto; padding:22px 22px 12px; display:flex; flex-direction:column; gap:16px; }
+
+  .msg{ max-width:88%; }
+  .msg.ai{ align-self:flex-start; }
+  .msg.user{ align-self:flex-end; }
+  .msg-bubble{ padding:12px 16px; font-size:13.5px; line-height:1.55; }
+  .msg.ai .msg-bubble{ background:var(--beige); color:var(--ink); border-radius:2px 12px 12px 12px; }
+  .msg.user .msg-bubble{ background:var(--ink); color:var(--ivory); border-radius:12px 2px 12px 12px; }
+
+  .chip-row{ display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; align-self:flex-start; max-width:100%; }
+  .chat-chip{
+    padding:9px 15px; border:1px solid var(--ink); background:transparent; font-size:12px; color:var(--ink);
+  }
+  .chat-chip:hover{ background:var(--ink); color:var(--ivory); }
+
+  .why-box{
+    background:var(--ivory); border:1px solid var(--line); padding:14px 16px; margin-top:12px; font-size:12.5px;
+  }
+  .why-box .why-title{ font-family:var(--serif); font-size:15px; margin-bottom:8px; }
+  .why-box ul{ margin:0; padding:0; list-style:none; }
+  .why-box li{ padding:3px 0; color:var(--ink-soft); }
+  .why-box li::before{ content:'✓ '; color:var(--success); }
+
+  .rec-grid{ display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:12px; width:100%; }
+  @media (max-width:420px){ .rec-grid{ grid-template-columns:1fr; } }
+  .rec-card{ background:var(--white); border:1px solid var(--line); position:relative; }
+  .rec-card .rimg{ position:relative; aspect-ratio:3/4; overflow:hidden; background:var(--beige); }
+  .rec-card .rimg img{ width:100%; height:100%; object-fit:cover; cursor:pointer; }
+  .rec-badge{
+    position:absolute; top:8px; left:8px; background:var(--ink); color:var(--ivory); font-size:9.5px;
+    padding:4px 8px; letter-spacing:0.03em;
+  }
+  .rec-wish{ position:absolute; top:8px; right:8px; background:rgba(255,255,255,0.9); border:none; width:26px; height:26px; border-radius:50%; display:flex; align-items:center; justify-content:center; }
+  .rec-wish svg{ width:12px; height:12px; fill:none; stroke:var(--ink); }
+  .rec-wish.saved svg{ fill:var(--ink); }
+  .rec-body{ padding:10px 12px 12px; }
+  .rec-body .rname{ font-family:var(--serif); font-size:14.5px; line-height:1.2; margin-bottom:3px; }
+  .rec-body .rprice{ font-size:12px; color:var(--ink-soft); margin-bottom:6px; }
+  .rec-body .rreason{ font-size:11px; color:var(--brass); line-height:1.4; margin-bottom:9px; }
+  .rec-body .rbtn{ width:100%; padding:8px; font-size:10.5px; letter-spacing:0.04em; background:var(--ink); color:var(--ivory); border:none; }
+  .rec-body .rbtn:hover{ background:var(--ink-soft); }
+
+  .complete-look{ margin-top:6px; }
+  .complete-look .clh{ font-family:var(--serif); font-size:16px; margin-bottom:10px; }
+  .cl-row{ display:flex; gap:10px; overflow-x:auto; padding-bottom:6px; }
+  .cl-item{ min-width:104px; }
+  .cl-item .ci-img{ width:104px; height:120px; background:var(--beige); overflow:hidden; margin-bottom:6px; }
+  .cl-item img{ width:100%; height:100%; object-fit:cover; }
+  .cl-item .ci-name{ font-size:11px; line-height:1.3; margin-bottom:2px; }
+  .cl-item .ci-price{ font-size:11px; color:var(--ink-soft); }
+
+  .disclaimer-note{ font-size:10.5px; color:#8a8377; border-top:1px dashed var(--line); padding-top:10px; margin-top:8px; line-height:1.5; }
+
+  .typing-dots{ display:flex; gap:4px; padding:14px 16px; background:var(--beige); width:fit-content; border-radius:2px 12px 12px 12px; }
+  .typing-dots span{ width:6px; height:6px; border-radius:50%; background:var(--ink-soft); animation:blink 1.2s infinite; }
+  .typing-dots span:nth-child(2){ animation-delay:.2s; }
+  .typing-dots span:nth-child(3){ animation-delay:.4s; }
+  @keyframes blink{ 0%,80%,100%{ opacity:.25; } 40%{ opacity:1; } }
+
+  .chat-input-row{
+    border-top:1px solid var(--line); padding:14px 18px; display:flex; gap:10px; align-items:center; background:var(--ivory);
+  }
+  .chat-input-row input{
+    flex:1; border:1px solid var(--line); background:var(--white); padding:12px 14px; font-size:13px;
+    font-family:var(--sans); color:var(--ink);
+  }
+  .chat-input-row input:focus{ border-color:var(--ink); outline:none; }
+  .send-btn{ background:var(--ink); color:var(--ivory); border:none; width:42px; height:42px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .send-btn svg{ width:16px; height:16px; }
+
+  /* ================= QUICKVIEW MODAL ================= */
+  .qv-overlay{
+    position:fixed; inset:0; z-index:700; background:rgba(20,18,15,0.55);
+    display:flex; align-items:center; justify-content:center; padding:24px;
+    opacity:0; pointer-events:none; transition:opacity .3s ease;
+  }
+  .qv-overlay.open{ opacity:1; pointer-events:auto; }
+  .qv-modal{
+    background:var(--ivory); max-width:820px; width:100%; max-height:88vh; overflow-y:auto;
+    display:grid; grid-template-columns:1fr 1fr; position:relative;
+    transform:translateY(16px); transition:transform .3s ease;
+  }
+  .qv-overlay.open .qv-modal{ transform:translateY(0); }
+  @media (max-width:680px){ .qv-modal{ grid-template-columns:1fr; } }
+  .qv-close{ position:absolute; top:14px; right:14px; background:var(--ivory); border:1px solid var(--line); width:34px; height:34px; border-radius:50%; display:flex; align-items:center; justify-content:center; z-index:2; }
+  .qv-close svg{ width:15px; height:15px; }
+  .qv-media{ background:var(--beige); aspect-ratio:3/4; overflow:hidden; }
+  .qv-media img{ width:100%; height:100%; object-fit:cover; }
+  .qv-info{ padding:36px 34px; }
+  .qv-info .qv-cat{ font-size:11px; letter-spacing:0.06em; color:var(--brass); margin-bottom:10px; }
+  .qv-info h3{ font-size:26px; margin-bottom:10px; }
+  .qv-info .qv-price{ font-size:16px; color:var(--ink-soft); margin-bottom:18px; }
+  .qv-info .qv-desc{ font-size:13.5px; line-height:1.65; color:var(--ink-soft); margin-bottom:22px; }
+  .qv-block{ margin-bottom:20px; }
+  .qv-label{ font-size:11px; letter-spacing:0.06em; color:var(--ink-soft); margin-bottom:10px; }
+  .swatch-row{ display:flex; gap:8px; }
+  .swatch{ width:26px; height:26px; border-radius:50%; border:1px solid var(--line); cursor:pointer; }
+  .swatch.active{ outline:2px solid var(--ink); outline-offset:2px; }
+  .size-row{ display:flex; gap:8px; flex-wrap:wrap; }
+  .size-opt{ border:1px solid var(--line); background:transparent; padding:8px 14px; font-size:12.5px; }
+  .size-opt.active, .size-opt:hover{ border-color:var(--ink); background:var(--ink); color:var(--ivory); }
+  .qv-actions{ display:flex; gap:10px; margin-top:26px; }
+
+  /* toast */
+  .toast{
+    position:fixed; left:50%; bottom:30px; transform:translate(-50%,20px); background:var(--ink); color:var(--ivory);
+    padding:14px 26px; font-size:13px; letter-spacing:0.03em; z-index:900; opacity:0; transition:all .3s ease; pointer-events:none;
+    display:flex; align-items:center; gap:10px;
+  }
+  .toast.show{ opacity:1; transform:translate(-50%,0); }
+  .toast svg{ width:15px; height:15px; }
+
+  .visually-hidden{ position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration:0.01ms !important; transition-duration:0.01ms !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+  <div class="announce-bar">
+    Discover your perfect look with our AI Personal Stylist
+    <button onclick="openStylist()">Try it now</button>
+  </div>
+  <div class="header-row container">
+    <a href="#" class="logo-mark" aria-label="Celestine & Mae, home">
+      <span class="logo-dots"><span></span><span></span></span>
+      <span class="logo-text">Celestine &amp; Mae</span>
+    </a>
+
+    <nav class="main-nav" aria-label="Main">
+      <a href="#new-in">New In</a>
+      <a href="#products" data-cat="Dresses" onclick="scrollToFilter('Dresses')">Dresses</a>
+      <a href="#products" data-cat="Jumpsuits" onclick="scrollToFilter('Jumpsuits')">Jumpsuits</a>
+      <a href="#products" data-cat="Tops" onclick="scrollToFilter('Tops')">Tops</a>
+      <a href="#products" data-cat="Skirts" onclick="scrollToFilter('Skirts')">Skirts</a>
+      <a href="#products" data-cat="Co-ords" onclick="scrollToFilter('Co-ords')">Co-ords</a>
+      <a href="#products" data-cat="Trousers" onclick="scrollToFilter('Trousers')">Trousers</a>
+    </nav>
+
+    <div class="header-icons">
+      <button class="icon-btn" aria-label="Search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </button>
+      <button class="icon-btn" aria-label="Account">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg>
+      </button>
+      <button class="icon-btn" aria-label="Wishlist" id="header-wishlist-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 20s-7-4.4-9.5-8.8C.8 8 2 4.5 5.3 3.6 7.7 3 10 4 12 6.5 14 4 16.3 3 18.7 3.6 22 4.5 23.2 8 21.5 11.2 19 15.6 12 20 12 20z"/></svg>
+        <span class="bag-count" id="wishlist-count" style="display:none;">0</span>
+      </button>
+      <button class="icon-btn" aria-label="Shopping bag" onclick="openStylist()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M6 8h12l-1 13H7L6 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+        <span class="bag-count" id="bag-count" style="display:none;">0</span>
+      </button>
+      <button class="hamburger" aria-label="Open menu" onclick="toggleMobileNav(true)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="scrim" id="scrim" onclick="toggleMobileNav(false)"></div>
+<nav class="mobile-nav" id="mobile-nav" aria-label="Mobile">
+  <div class="mobile-nav-header">
+    <span class="logo-text" style="font-family:var(--serif);font-size:20px;">Menu</span>
+    <button class="icon-btn" onclick="toggleMobileNav(false)" aria-label="Close menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg>
+    </button>
+  </div>
+  <a href="#new-in" onclick="toggleMobileNav(false)">New In</a>
+  <a href="#products" onclick="toggleMobileNav(false);scrollToFilter('Dresses')">Dresses</a>
+  <a href="#products" onclick="toggleMobileNav(false);scrollToFilter('Jumpsuits')">Jumpsuits</a>
+  <a href="#products" onclick="toggleMobileNav(false);scrollToFilter('Tops')">Tops</a>
+  <a href="#products" onclick="toggleMobileNav(false);scrollToFilter('Skirts')">Skirts</a>
+  <a href="#products" onclick="toggleMobileNav(false);scrollToFilter('Co-ords')">Co-ords</a>
+  <a href="#products" onclick="toggleMobileNav(false);scrollToFilter('Trousers')">Trousers</a>
+  <a href="#" onclick="toggleMobileNav(false);openStylist();">✦ AI Personal Stylist</a>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="new-in">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Autumn Edit — New Arrivals</div>
+    <h1>Find Your Perfect Look</h1>
+    <p>Let our AI Personal Stylist help you discover pieces chosen around your style, occasion and budget.</p>
+    <div class="hero-ctas">
+      <button class="btn btn-primary" onclick="openStylist()">Try AI Personal Stylist</button>
+      <a href="#products" class="btn btn-outline">Shop New In</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CATEGORY STRIP ============ -->
+<section class="cat-strip container">
+  <div class="section-head">
+    <h2>Shop by Category</h2>
+    <p>Considered pieces for every occasion, from everyday elegance to evening events.</p>
+  </div>
+  <div class="cat-grid">
+    <a class="cat-tile" href="#products" onclick="scrollToFilter('Dresses')">
+      <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?q=80&w=700&auto=format&fit=crop" alt="Dresses">
+      <span>Dresses</span>
+    </a>
+    <a class="cat-tile" href="#products" onclick="scrollToFilter('Co-ords')">
+      <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=700&auto=format&fit=crop" alt="Co-ords">
+      <span>Co-ords</span>
+    </a>
+    <a class="cat-tile" href="#products" onclick="scrollToFilter('Trousers')">
+      <img src="https://images.unsplash.com/photo-1445205170230-053b83016050?q=80&w=700&auto=format&fit=crop" alt="Trousers">
+      <span>Trousers</span>
+    </a>
+    <a class="cat-tile" href="#products" onclick="scrollToFilter('Tops')">
+      <img src="https://images.unsplash.com/photo-1485462537746-965f33f7f6a7?q=80&w=700&auto=format&fit=crop" alt="Tops">
+      <span>Tops</span>
+    </a>
+  </div>
+</section>
+
+<!-- ============ PRODUCTS ============ -->
+<section class="products-section container" id="products">
+  <div class="section-head">
+    <h2>New In</h2>
+    <p>This season's edit — or let your stylist narrow it down for you.</p>
+  </div>
+  <div class="filter-row" id="filter-row"></div>
+  <div class="product-grid" id="product-grid"></div>
+</section>
+
+<!-- ============ MID-PAGE STYLIST BANNER ============ -->
+<div class="stylist-banner container">
+  <div class="txt">
+    <span class="star">✦ Personal styling, reimagined</span>
+    <h2>Not sure where to start?</h2>
+    <p>Tell your stylist the occasion, your budget and your style — she'll narrow our full collection down to a handful of pieces chosen just for you.</p>
+  </div>
+  <button class="btn btn-primary" onclick="openStylist()">Try AI Personal Stylist</button>
+</div>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="logo-text" style="font-family:var(--serif);font-size:22px;">Celestine &amp; Mae</span>
+        <p>Considered, editorial womenswear designed for the way you actually live. Small runs, timeless fabrics, and an AI stylist to help you find the piece that's right.</p>
+      </div>
+      <div>
+        <h4>Shop</h4>
+        <a href="#products" onclick="scrollToFilter('Dresses')">Dresses</a>
+        <a href="#products" onclick="scrollToFilter('Jumpsuits')">Jumpsuits</a>
+        <a href="#products" onclick="scrollToFilter('Co-ords')">Co-ords</a>
+        <a href="#products" onclick="scrollToFilter('')">All New In</a>
+      </div>
+      <div>
+        <h4>Help</h4>
+        <a href="#">Sizing Guide</a>
+        <a href="#">Shipping &amp; Returns</a>
+        <a href="#">Contact Us</a>
+      </div>
+      <div>
+        <h4>About</h4>
+        <a href="#">Our Story</a>
+        <a href="#">Sustainability</a>
+        <a href="#" onclick="openStylist()">AI Personal Stylist</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Celestine &amp; Mae. A design prototype.</span>
+      <span>Product recommendations shown are based on a sample catalogue created for this POC.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ FLOATING STYLIST BUTTON ============ -->
+<button class="fab-stylist" onclick="openStylist()" aria-haspopup="dialog">
+  <span class="dot-pulse"></span>
+  <span class="fab-label">✦ AI Personal Stylist</span>
+</button>
+
+<!-- ============ STYLIST PANEL ============ -->
+<div class="stylist-overlay" id="stylist-overlay" onclick="closeStylist(event)"></div>
+<aside class="stylist-panel" id="stylist-panel" role="dialog" aria-modal="true" aria-label="AI Personal Stylist">
+  <div class="stylist-head">
+    <div class="titles">
+      <h3>Celestine &amp; Mae<br>AI Personal Stylist</h3>
+      <div class="live">Your personal stylist, available 24/7</div>
+    </div>
+    <button class="close-btn" onclick="closeStylist()" aria-label="Close stylist">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg>
+    </button>
+  </div>
+  <div class="stylist-sub">
+    <span>Tell me what you're looking for and I'll help you find your perfect look.</span>
+    <button onclick="runDemo()">Try a Demo</button>
+  </div>
+  <div class="chat-log" id="chat-log"></div>
+  <div class="chat-input-row">
+    <label for="chat-text" class="visually-hidden">Message the stylist</label>
+    <input type="text" id="chat-text" placeholder="Tell me what you're looking for…" autocomplete="off">
+    <button class="send-btn" onclick="handleUserSend()" aria-label="Send">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+    </button>
+  </div>
+</aside>
+
+<!-- ============ QUICK VIEW MODAL ============ -->
+<div class="qv-overlay" id="qv-overlay" onclick="closeQuickView(event)">
+  <div class="qv-modal" id="qv-modal" onclick="event.stopPropagation()">
+    <button class="qv-close" onclick="closeQuickView()" aria-label="Close">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg>
+    </button>
+    <div class="qv-media"><img id="qv-img" src="" alt=""></div>
+    <div class="qv-info">
+      <div class="qv-cat" id="qv-cat"></div>
+      <h3 id="qv-name"></h3>
+      <div class="qv-price" id="qv-price"></div>
+      <p class="qv-desc" id="qv-desc"></p>
+
+      <div class="qv-block">
+        <div class="qv-label">Colour</div>
+        <div class="swatch-row" id="qv-colors"></div>
+      </div>
+      <div class="qv-block">
+        <div class="qv-label">Size</div>
+        <div class="size-row" id="qv-sizes"></div>
+      </div>
+
+      <div class="qv-actions">
+        <button class="btn btn-dark btn-block" onclick="addToBag()">Add to Bag</button>
+      </div>
+      <a href="#" class="btn btn-line btn-block" style="margin-top:10px;" onclick="return false;">View Full Product</a>
+    </div>
+  </div>
+</div>
+
+<!-- ============ TOAST ============ -->
+<div class="toast" id="toast">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><polyline points="20 6 9 17 4 12"/></svg>
+  <span id="toast-text">Added to your bag.</span>
+</div>
+
+<script>
+/* ============================================================
+   MOCK PRODUCT CATALOGUE
+============================================================ */
+const PRODUCTS = [
+  { id:1, name:"Elara Draped Midi Dress", category:"Dresses", price:125, color:"Sage", occasion:["Wedding Guest","Everyday Elegant"], style:["Elegant"], fit:"Midi",
+    img:"https://images.unsplash.com/photo-1595777457583-95e059d581b8?q=80&w=800&auto=format&fit=crop",
+    desc:"A softly draped midi dress in fluid crepe, cut for a flattering, elongating silhouette. Lightweight enough for warm-weather occasions." },
+  { id:2, name:"Amelia Satin Wrap Dress", category:"Dresses", price:140, color:"Champagne", occasion:["Wedding Guest","Dinner Date"], style:["Elegant"], fit:"Wrap",
+    img:"https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=800&auto=format&fit=crop",
+    desc:"A liquid satin wrap dress with a fitted waist and fluid skirt. Finished with a self-tie belt for an adjustable, flattering fit." },
+  { id:3, name:"Isla Asymmetric Maxi Dress", category:"Dresses", price:149, color:"Blush", occasion:["Wedding Guest","Party Look"], style:["Elegant","Glamorous"], fit:"Maxi",
+    img:"https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=800&auto=format&fit=crop",
+    desc:"An elevated statement maxi with a one-shoulder neckline and asymmetric hem. A formal option for summer occasions." },
+  { id:4, name:"Noor Silk Cami Dress", category:"Dresses", price:98, color:"Ivory", occasion:["Dinner Date","Everyday Elegant"], style:["Elegant","Minimal"], fit:"Slip",
+    img:"https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=800&auto=format&fit=crop",
+    desc:"A bias-cut silk-touch cami dress that skims the body. Understated and endlessly versatile, from desk to dinner." },
+  { id:5, name:"Vera Tailored Jumpsuit", category:"Jumpsuits", price:135, color:"Black", occasion:["Dinner Date","Party Look"], style:["Modern","Elegant"], fit:"Wide leg",
+    img:"https://images.unsplash.com/photo-1548454782-16c5cea5d332?q=80&w=800&auto=format&fit=crop",
+    desc:"A sharply tailored wide-leg jumpsuit with a fitted bodice. A confident alternative to a dress for evening occasions." },
+  { id:6, name:"Freya Linen Co-ord Set", category:"Co-ords", price:115, color:"Sand", occasion:["Everyday Elegant","Holiday"], style:["Relaxed","Minimal"], fit:"Two-piece",
+    img:"https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=800&auto=format&fit=crop",
+    desc:"A relaxed linen-blend shirt and trouser co-ord. Breathable and easy, worn together or split across your wardrobe." },
+  { id:7, name:"Marlowe Pleated Skirt", category:"Skirts", price:75, color:"Ivory", occasion:["Everyday Elegant","Holiday"], style:["Feminine"], fit:"Midi",
+    img:"https://images.unsplash.com/photo-1583496661160-fb5886a13d1e?q=80&w=800&auto=format&fit=crop",
+    desc:"A fine knife-pleated midi skirt with soft movement. Pairs beautifully with a fitted knit or tucked blouse." },
+  { id:8, name:"Celeste Silk Blouse", category:"Tops", price:68, color:"Champagne", occasion:["Everyday Elegant","Dinner Date"], style:["Classic","Elegant"], fit:"Fitted",
+    img:"https://images.unsplash.com/photo-1485462537746-965f33f7f6a7?q=80&w=800&auto=format&fit=crop",
+    desc:"A fluid silk-touch blouse with a soft V-neck and fitted cuffs. A quiet, versatile foundation piece." },
+  { id:9, name:"Juno Wide-Leg Trousers", category:"Trousers", price:89, color:"Black", occasion:["Everyday Elegant","Dinner Date"], style:["Tailored","Classic"], fit:"High-waist",
+    img:"https://images.unsplash.com/photo-1445205170230-053b83016050?q=80&w=800&auto=format&fit=crop",
+    desc:"High-waisted, wide-leg tailored trousers in a soft twill. A polished trouser that moves with you." },
+  { id:10, name:"Odette Sequin Party Dress", category:"Dresses", price:160, color:"Black", occasion:["Party Look"], style:["Glamorous"], fit:"Bodycon",
+    img:"https://images.unsplash.com/photo-1566174053879-31528523f8ae?q=80&w=800&auto=format&fit=crop",
+    desc:"An all-over sequin bodycon dress with a scoop neckline. Built to catch the light on the dance floor." },
+  { id:11, name:"Wren Knit Midi Dress", category:"Dresses", price:72, color:"Oat", occasion:["Everyday Elegant"], style:["Relaxed","Minimal"], fit:"Midi",
+    img:"https://images.unsplash.com/photo-1496747611176-843222e1e57c?q=80&w=800&auto=format&fit=crop",
+    desc:"A ribbed knit midi dress that skims the body without clinging. An easy everyday layer that still feels considered." },
+  { id:12, name:"Sienna Off-Shoulder Gown", category:"Dresses", price:210, color:"Emerald", occasion:["Party Look","Wedding Guest"], style:["Glamorous","Elegant"], fit:"Gown",
+    img:"https://images.unsplash.com/photo-1518831959646-742c3a14ebf7?q=80&w=800&auto=format&fit=crop",
+    desc:"A floor-length off-shoulder gown in rich emerald crepe. Reserved for the occasions that call for real drama." }
+];
+
+const ACCESSORIES = [
+  { name:"Minimal Gold Hoop Earrings", price:35, img:"https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=400&auto=format&fit=crop" },
+  { name:"Structured Evening Bag", price:95, img:"https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=400&auto=format&fit=crop" },
+  { name:"Elegant Heeled Sandals", price:110, img:"https://images.unsplash.com/photo-1543163521-1bf539c55dd2?q=80&w=400&auto=format&fit=crop" },
+  { name:"Tailored Wool Coat", price:190, img:"https://images.unsplash.com/photo-1539533018447-63fcce2678e3?q=80&w=400&auto=format&fit=crop" }
+];
+
+const COLORS = { "Black":"#1b1815","Ivory":"#f3ede0","Sage":"#8a9a7e","Champagne":"#d8c39c","Blush":"#e3c3bf","Sand":"#cdbba0","Oat":"#ded0b8","Emerald":"#3f6153" };
+const SIZES = ["XS","S","M","L","XL"];
+
+let wishlist = new Set();
+let bagCount = 0;
+let currentFilter = "All";
+let currentQvProduct = null;
+let qvColor = null, qvSize = null;
+
+/* ============================================================
+   PRODUCT GRID
+============================================================ */
+function renderFilters(){
+  const cats = ["All", ...new Set(PRODUCTS.map(p=>p.category))];
+  const row = document.getElementById('filter-row');
+  row.innerHTML = cats.map(c=>`<button class="filter-chip ${c===currentFilter?'active':''}" onclick="setFilter('${c}')">${c}</button>`).join('');
+}
+function setFilter(cat){
+  currentFilter = cat;
+  renderFilters();
+  renderGrid();
+}
+function scrollToFilter(cat){
+  setFilter(cat || "All");
+  document.getElementById('products').scrollIntoView({behavior:'smooth'});
+}
+function renderGrid(){
+  const grid = document.getElementById('product-grid');
+  const list = currentFilter === "All" ? PRODUCTS : PRODUCTS.filter(p=>p.category===currentFilter);
+  grid.innerHTML = list.map(p=>`
+    <div class="product-card">
+      <div class="product-media">
+        <img src="${p.img}" alt="${p.name}" onclick="openQuickView(${p.id})">
+        <button class="wishlist-btn ${wishlist.has(p.id)?'saved':''}" onclick="toggleWishlist(${p.id}, this)" aria-label="Add to wishlist">
+          <svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-9.5-8.8C.8 8 2 4.5 5.3 3.6 7.7 3 10 4 12 6.5 14 4 16.3 3 18.7 3.6 22 4.5 23.2 8 21.5 11.2 19 15.6 12 20 12 20z"/></svg>
+        </button>
+        <button class="quickview-btn" onclick="openQuickView(${p.id})">Quick View</button>
+      </div>
+      <div class="product-info">
+        <div class="cat">${p.category}</div>
+        <div class="name">${p.name}</div>
+        <div class="price">£${p.price}</div>
+      </div>
+    </div>
+  `).join('');
+}
+function toggleWishlist(id, btn){
+  if(wishlist.has(id)){ wishlist.delete(id); btn.classList.remove('saved'); }
+  else{ wishlist.add(id); btn.classList.add('saved'); }
+  updateWishlistCount();
+}
+function updateWishlistCount(){
+  const el = document.getElementById('wishlist-count');
+  el.textContent = wishlist.size;
+  el.style.display = wishlist.size ? 'flex' : 'none';
+}
+
+/* ============================================================
+   QUICK VIEW MODAL
+============================================================ */
+function openQuickView(id){
+  const p = PRODUCTS.find(x=>x.id===id);
+  if(!p) return;
+  currentQvProduct = p;
+  qvColor = p.color; qvSize = "M";
+  document.getElementById('qv-img').src = p.img;
+  document.getElementById('qv-img').alt = p.name;
+  document.getElementById('qv-cat').textContent = p.category;
+  document.getElementById('qv-name').textContent = p.name;
+  document.getElementById('qv-price').textContent = "£" + p.price;
+  document.getElementById('qv-desc').textContent = p.desc;
+
+  const colorOptions = Array.from(new Set([p.color, "Black", "Ivory"]));
+  document.getElementById('qv-colors').innerHTML = colorOptions.map(c=>`
+    <button class="swatch ${c===qvColor?'active':''}" style="background:${COLORS[c]||'#ccc'}" title="${c}" aria-label="${c}" onclick="selectQvColor('${c}', this)"></button>
+  `).join('');
+  document.getElementById('qv-sizes').innerHTML = SIZES.map(s=>`
+    <button class="size-opt ${s===qvSize?'active':''}" onclick="selectQvSize('${s}', this)">${s}</button>
+  `).join('');
+
+  document.getElementById('qv-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function selectQvColor(c, el){
+  qvColor = c;
+  el.parentElement.querySelectorAll('.swatch').forEach(s=>s.classList.remove('active'));
+  el.classList.add('active');
+}
+function selectQvSize(s, el){
+  qvSize = s;
+  el.parentElement.querySelectorAll('.size-opt').forEach(s=>s.classList.remove('active'));
+  el.classList.add('active');
+}
+function closeQuickView(e){
+  if(e && e.target !== e.currentTarget) return;
+  document.getElementById('qv-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function addToBag(){
+  bagCount++;
+  const el = document.getElementById('bag-count');
+  el.textContent = bagCount;
+  el.style.display = 'flex';
+  showToast("Added to your bag.");
+  closeQuickView();
+}
+function showToast(text){
+  const t = document.getElementById('toast');
+  document.getElementById('toast-text').textContent = text;
+  t.classList.add('show');
+  clearTimeout(window._toastTimer);
+  window._toastTimer = setTimeout(()=> t.classList.remove('show'), 2400);
+}
+
+/* ============================================================
+   MOBILE NAV
+============================================================ */
+function toggleMobileNav(open){
+  document.getElementById('mobile-nav').classList.toggle('open', open);
+  document.getElementById('scrim').classList.toggle('show', open);
+}
+
+/* ============================================================
+   AI STYLIST — CHAT ENGINE
+============================================================ */
+const stylistState = { occasion:null, occasionLabel:null, budget:null, budgetLabel:null, type:null, step:'start' };
+
+function openStylist(){
+  document.getElementById('stylist-overlay').classList.add('open');
+  document.getElementById('stylist-panel').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  if(document.getElementById('chat-log').children.length === 0){
+    startConversation();
+  }
+}
+function closeStylist(e){
+  if(e && e.target !== e.currentTarget) return;
+  document.getElementById('stylist-overlay').classList.remove('open');
+  document.getElementById('stylist-panel').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function chatLog(){ return document.getElementById('chat-log'); }
+function scrollChatBottom(){ const log = chatLog(); log.scrollTop = log.scrollHeight; }
+
+function addUserMessage(text){
+  const div = document.createElement('div');
+  div.className = 'msg user';
+  div.innerHTML = `<div class="msg-bubble"></div>`;
+  div.querySelector('.msg-bubble').textContent = text;
+  chatLog().appendChild(div);
+  scrollChatBottom();
+}
+
+function addTyping(){
+  const div = document.createElement('div');
+  div.className = 'msg ai';
+  div.id = 'typing-indicator';
+  div.innerHTML = `<div class="typing-dots"><span></span><span></span><span></span></div>`;
+  chatLog().appendChild(div);
+  scrollChatBottom();
+}
+function removeTyping(){
+  const t = document.getElementById('typing-indicator');
+  if(t) t.remove();
+}
+
+function addAiMessage(text, {chips=null, onChip=null, extraNode=null} = {}){
+  return new Promise(resolve=>{
+    addTyping();
+    setTimeout(()=>{
+      removeTyping();
+      const div = document.createElement('div');
+      div.className = 'msg ai';
+      const bubble = document.createElement('div');
+      bubble.className = 'msg-bubble';
+      bubble.textContent = text;
+      div.appendChild(bubble);
+
+      if(chips && chips.length){
+        const row = document.createElement('div');
+        row.className = 'chip-row';
+        chips.forEach(label=>{
+          const btn = document.createElement('button');
+          btn.className = 'chat-chip';
+          btn.textContent = label;
+          btn.onclick = ()=>{
+            row.querySelectorAll('.chat-chip').forEach(b=> b.disabled = true);
+            row.style.opacity = '0.55';
+            addUserMessage(label);
+            onChip(label);
+          };
+          row.appendChild(btn);
+        });
+        div.appendChild(row);
+      }
+      if(extraNode) div.appendChild(extraNode);
+
+      chatLog().appendChild(div);
+      scrollChatBottom();
+      resolve(div);
+    }, 620);
+  });
+}
+
+function startConversation(){
+  stylistState.step = 'start';
+  addAiMessage("Hi, I'm your Celestine & Mae Personal Stylist. What are you looking for today?", {
+    chips:["Wedding Guest Look","Holiday Outfit","Dinner Date","Party Look","Everyday Elegant","Something Under £100"],
+    onChip: handleOccasionChoice
+  });
+}
+
+function handleUserSend(){
+  const input = document.getElementById('chat-text');
+  const val = input.value.trim();
+  if(!val) return;
+  addUserMessage(val);
+  input.value = '';
+  routeFreeText(val);
+}
+document.addEventListener('DOMContentLoaded', ()=>{
+  document.getElementById('chat-text').addEventListener('keydown', e=>{
+    if(e.key === 'Enter') handleUserSend();
+  });
+});
+
+function routeFreeText(text){
+  const low = text.toLowerCase();
+  if(stylistState.step === 'start' || stylistState.step === undefined){
+    if(low.includes('under £100') || low.includes('under 100') || low.includes('£100')){
+      handleOccasionChoice("Something Under £100"); return;
+    }
+    if(low.includes('wedding')) return handleOccasionChoice("Wedding Guest Look");
+    if(low.includes('holiday')) return handleOccasionChoice("Holiday Outfit");
+    if(low.includes('dinner') || low.includes('date')) return handleOccasionChoice("Dinner Date");
+    if(low.includes('party')) return handleOccasionChoice("Party Look");
+    if(low.includes('everyday') || low.includes('work') || low.includes('casual')) return handleOccasionChoice("Everyday Elegant");
+    // default: treat as elegant / general request, still move forward
+    return handleOccasionChoice("Everyday Elegant");
+  }
+  if(stylistState.step === 'budget'){
+    if(low.match(/100/)) return handleBudgetChoice("Under £100");
+    if(low.match(/150/)) return handleBudgetChoice("£100–£150");
+    if(low.match(/200/)) return handleBudgetChoice("£150–£200");
+    return handleBudgetChoice("£200+");
+  }
+  if(stylistState.step === 'type'){
+    if(low.includes('jumpsuit')) return handleTypeChoice("Jumpsuit");
+    if(low.includes('skirt') || low.includes('top')) return handleTypeChoice("Skirt & Top");
+    if(low.includes('co-ord') || low.includes('coord')) return handleTypeChoice("Co-ord");
+    if(low.includes('dress')) return handleTypeChoice("Dress");
+    return handleTypeChoice("No preference");
+  }
+  // fallback after results already shown
+  addAiMessage("I've noted that — feel free to tap \"Try a Demo\" above, or use the quick options to refine your search further.");
+}
+
+function handleOccasionChoice(label){
+  const map = {
+    "Wedding Guest Look": "Wedding Guest",
+    "Holiday Outfit": "Holiday",
+    "Dinner Date": "Dinner Date",
+    "Party Look": "Party Look",
+    "Everyday Elegant": "Everyday Elegant",
+    "Something Under £100": null
+  };
+  stylistState.occasionLabel = label;
+  stylistState.occasion = map[label];
+  if(label === "Something Under £100"){
+    stylistState.budget = 100; stylistState.budgetLabel = "Under £100";
+    stylistState.step = 'type';
+    addAiMessage("Great — I'll keep everything under £100. Do you have a preference for the type of outfit?", {
+      chips:["Dress","Jumpsuit","Skirt & Top","Co-ord","No preference"],
+      onChip: handleTypeChoice
+    });
+    return;
+  }
+  stylistState.step = 'budget';
+  addAiMessage("Absolutely. I'd be happy to help. Do you have a budget in mind?", {
+    chips:["Under £100","£100–£150","£150–£200","£200+"],
+    onChip: handleBudgetChoice
+  });
+}
+
+function handleBudgetChoice(label){
+  const map = { "Under £100":100, "£100–£150":150, "£150–£200":200, "£200+":9999 };
+  stylistState.budgetLabel = label;
+  stylistState.budget = map[label];
+  stylistState.step = 'type';
+  addAiMessage("Perfect. And do you have a preference for the type of outfit?", {
+    chips:["Dress","Jumpsuit","Skirt & Top","Co-ord","No preference"],
+    onChip: handleTypeChoice
+  });
+}
+
+function handleTypeChoice(label){
+  stylistState.type = label;
+  stylistState.step = 'results';
+  addAiMessage("Great choice. Based on your occasion, style and budget, I've found a few pieces that could work beautifully.")
+    .then(()=> showRecommendations());
+}
+
+function categoryFromType(type){
+  if(type === "Dress") return ["Dresses"];
+  if(type === "Jumpsuit") return ["Jumpsuits"];
+  if(type === "Skirt & Top") return ["Skirts","Tops"];
+  if(type === "Co-ord") return ["Co-ords"];
+  return null;
+}
+
+function filterProducts(){
+  const { occasion, budget, type } = stylistState;
+  let list = PRODUCTS.filter(p=>{
+    const withinBudget = budget ? p.price <= budget : true;
+    const matchesOccasion = occasion ? p.occasion.includes(occasion) : true;
+    const cats = categoryFromType(type);
+    const matchesType = cats ? cats.includes(p.category) : true;
+    return withinBudget && matchesOccasion && matchesType;
+  });
+  // fallback: relax occasion filter if nothing matches, then relax type
+  if(list.length === 0){
+    list = PRODUCTS.filter(p=> (budget ? p.price <= budget : true));
+  }
+  if(list.length === 0){ list = PRODUCTS.slice(); }
+  return list.sort((a,b)=> a.price - b.price).slice(0,3);
+}
+
+function reasonFor(p){
+  const reasons = [];
+  if(stylistState.budget) reasons.push(`Within your ${stylistState.budgetLabel} budget`);
+  if(stylistState.occasionLabel) reasons.push(`Suitable for ${stylistState.occasionLabel.replace(' Look','').replace(' Outfit','').toLowerCase()}`);
+  if(p.style && p.style[0]) reasons.push(`${p.style[0]} style`);
+  reasons.push(`Lightweight, flattering silhouette`);
+  return reasons.slice(0,4);
+}
+
+function matchScore(i){ return [96, 92, 88][i] || 85; }
+
+function showRecommendations(){
+  const matches = filterProducts();
+  const wrap = document.createElement('div');
+  wrap.style.width = '100%';
+
+  const grid = document.createElement('div');
+  grid.className = 'rec-grid';
+  matches.forEach((p, i)=>{
+    const card = document.createElement('div');
+    card.className = 'rec-card';
+    card.innerHTML = `
+      <div class="rimg">
+        <span class="rec-badge">${i===0 ? 'AI Recommended' : matchScore(i) + '% Style Match'}</span>
+        <button class="rec-wish ${wishlist.has(p.id)?'saved':''}" onclick="toggleWishlist(${p.id}, this)" aria-label="Wishlist">
+          <svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-9.5-8.8C.8 8 2 4.5 5.3 3.6 7.7 3 10 4 12 6.5 14 4 16.3 3 18.7 3.6 22 4.5 23.2 8 21.5 11.2 19 15.6 12 20 12 20z"/></svg>
+        </button>
+        <img src="${p.img}" alt="${p.name}" onclick="openQuickView(${p.id})">
+      </div>
+      <div class="rec-body">
+        <div class="rname">${p.name}</div>
+        <div class="rprice">£${p.price}</div>
+        <div class="rreason">"${aiMatchLine(p)}"</div>
+        <button class="rbtn" onclick="openQuickView(${p.id})">View Product</button>
+      </div>
+    `;
+    grid.appendChild(card);
+  });
+  wrap.appendChild(grid);
+
+  if(matches[0]){
+    const why = document.createElement('div');
+    why.className = 'why-box';
+    why.innerHTML = `<div class="why-title">Why I picked this</div><ul>${reasonFor(matches[0]).map(r=>`<li>${r}</li>`).join('')}</ul>`;
+    wrap.appendChild(why);
+  }
+
+  const cl = document.createElement('div');
+  cl.className = 'complete-look';
+  cl.innerHTML = `<div class="clh">Complete Your Look</div>
+    <div class="cl-row">${ACCESSORIES.map(a=>`
+      <div class="cl-item">
+        <div class="ci-img"><img src="${a.img}" alt="${a.name}"></div>
+        <div class="ci-name">${a.name}</div>
+        <div class="ci-price">£${a.price}</div>
+      </div>`).join('')}
+    </div>`;
+  wrap.appendChild(cl);
+
+  const note = document.createElement('div');
+  note.className = 'disclaimer-note';
+  note.textContent = "AI recommendations shown in this demonstration are based on the sample product catalogue created for this POC.";
+  wrap.appendChild(note);
+
+  const div = document.createElement('div');
+  div.className = 'msg ai';
+  div.style.maxWidth = '100%';
+  div.appendChild(wrap);
+  chatLog().appendChild(div);
+  scrollChatBottom();
+
+  setTimeout(()=>{
+    addAiMessage("Would you like me to refine this further, or start a new search?", {
+      chips:["Start New Search"],
+      onChip: ()=>{ resetStylist(); startConversation(); }
+    });
+  }, 500);
+}
+
+function aiMatchLine(p){
+  const lines = {
+    1:"Elegant silhouette and lightweight styling make this a strong option for a summer wedding.",
+    2:"Fits your elegant preference while staying comfortably within budget.",
+    3:"An elevated statement option for a formal occasion.",
+  };
+  return lines[p.id] || `${p.style[0] || 'Elegant'} styling that suits ${stylistState.occasionLabel ? stylistState.occasionLabel.toLowerCase() : 'your occasion'} and fits your budget.`;
+}
+
+function resetStylist(){
+  stylistState.occasion = null; stylistState.occasionLabel = null;
+  stylistState.budget = null; stylistState.budgetLabel = null;
+  stylistState.type = null; stylistState.step = 'start';
+}
+
+/* ============================================================
+   DEMO SCENARIO
+============================================================ */
+function runDemo(){
+  chatLog().innerHTML = '';
+  resetStylist();
+  addAiMessage("Hi, I'm your Celestine & Mae Personal Stylist. What are you looking for today?").then(()=>{
+    setTimeout(()=>{
+      addUserMessage("I need an elegant outfit for a summer wedding under £150.");
+      stylistState.occasion = "Wedding Guest";
+      stylistState.occasionLabel = "Wedding Guest Look";
+      stylistState.budget = 150;
+      stylistState.budgetLabel = "£100–£150";
+      stylistState.type = "Dress";
+      stylistState.step = 'results';
+      addAiMessage("Absolutely. I'll help you find something elegant, occasion-appropriate and within your budget.")
+        .then(()=> showRecommendations());
+    }, 700);
+  });
+}
+
+/* ============================================================
+   INIT
+============================================================ */
+renderFilters();
+renderGrid();
+</script>
+</body>
+</html>
